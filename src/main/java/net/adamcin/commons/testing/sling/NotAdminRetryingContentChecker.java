@@ -18,10 +18,14 @@ import org.apache.sling.testing.tools.retry.RetryLoop;
 public class NotAdminRetryingContentChecker {
     private final RequestExecutor executor;
     private final RequestBuilder builder;
+    private final String username;
+    private final String password;
 
-    public NotAdminRetryingContentChecker(RequestExecutor executor, RequestBuilder builder) {
-        this.executor = executor;
-        this.builder = builder;
+    public NotAdminRetryingContentChecker(SlingITContext context) {
+        this.executor = context.getRequestExecutor();
+        this.builder = context.getRequestBuilder();
+        this.username = context.getServerUsername();
+        this.password = context.getServerPassword();
     }
 
     /** Check specified path for expected status, or timeout */
@@ -33,7 +37,7 @@ public class NotAdminRetryingContentChecker {
 
             public boolean isTrue() throws Exception {
                 executor.execute(builder.buildGetRequest(path)
-                        .withCredentials(RequestBuilderUtil.USER, RequestBuilderUtil.PASS))
+                        .withCredentials(username, password))
                         .assertStatus(expectedStatus);
                 return assertMore(executor);
             }
