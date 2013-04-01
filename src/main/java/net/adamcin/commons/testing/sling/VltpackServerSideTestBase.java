@@ -17,7 +17,6 @@
 package net.adamcin.commons.testing.sling;
 
 import org.apache.http.client.HttpClient;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.sling.testing.tools.http.RequestBuilder;
 import org.apache.sling.testing.tools.http.RequestExecutor;
 import org.apache.sling.testing.tools.sling.SlingClient;
@@ -61,7 +60,7 @@ public class VltpackServerSideTestBase {
         }
 
         if(!servletOk) {
-            final NotAdminRetryingContentChecker servletChecker = new NotAdminRetryingContentChecker(context)
+            final ITContextAwareRetryingContentChecker servletChecker = new ITContextAwareRetryingContentChecker(context)
             {
                 @Override
                 public void onTimeout() {

@@ -13,15 +13,15 @@ import org.apache.sling.testing.tools.retry.RetryLoop;
 
 /**
  * @author madamcin
- * @version $Id: NotAdminRetryingContentChecker.java$
+ * @version $Id: ITContextAwareRetryingContentChecker.java$
  */
-public class NotAdminRetryingContentChecker {
+public class ITContextAwareRetryingContentChecker {
     private final RequestExecutor executor;
     private final RequestBuilder builder;
     private final String username;
     private final String password;
 
-    public NotAdminRetryingContentChecker(SlingITContext context) {
+    public ITContextAwareRetryingContentChecker(SlingITContext context) {
         this.executor = context.getRequestExecutor();
         this.builder = context.getRequestBuilder();
         this.username = context.getServerUsername();
@@ -46,7 +46,7 @@ public class NotAdminRetryingContentChecker {
         new RetryLoop(c, timeoutSeconds, intervalBetweenrequestsMsec) {
             @Override
             protected void onTimeout() {
-                NotAdminRetryingContentChecker.this.onTimeout();
+                ITContextAwareRetryingContentChecker.this.onTimeout();
             }
         };
     }
