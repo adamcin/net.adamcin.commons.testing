@@ -1,9 +1,3 @@
-/*
- * @(#)SlingPostResponse Dec 02, 2011
- *
- * COPYRIGHT (c) 2011 by Recreational Equipment Incorporated. All rights
- * reserved.
- */
 
 package net.adamcin.commons.testing.sling;
 
@@ -29,11 +23,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Captures the 
- * @author madamcin
- * @version $Id: SlingPostResponse.java$
- */
+
 public class SlingPostResponse {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SlingPostResponse.class);
