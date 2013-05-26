@@ -1,9 +1,4 @@
-/*
- * @(#)RequestBuilderUtil Dec 02, 2011
- *
- * COPYRIGHT (c) 2011 by Recreational Equipment Incorporated. All rights
- * reserved.
- */
+
 
 package net.adamcin.commons.testing.sling;
 
