@@ -1,9 +1,3 @@
-/*
- * @(#)NotAdminRetryingContentChecker Jan 20, 2012
- *
- * COPYRIGHT (c) 2012 by Recreational Equipment Incorporated. All rights
- * reserved.
- */
 
 package net.adamcin.commons.testing.sling;
 
@@ -11,10 +5,6 @@ import org.apache.sling.testing.tools.http.RequestBuilder;
 import org.apache.sling.testing.tools.http.RequestExecutor;
 import org.apache.sling.testing.tools.retry.RetryLoop;
 
-/**
- * @author madamcin
- * @version $Id: ITContextAwareRetryingContentChecker.java$
- */
 public class ITContextAwareRetryingContentChecker {
     private final RequestExecutor executor;
     private final RequestBuilder builder;
