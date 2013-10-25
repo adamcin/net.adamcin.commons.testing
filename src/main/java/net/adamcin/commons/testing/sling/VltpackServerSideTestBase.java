@@ -29,6 +29,7 @@ import static org.junit.Assert.fail;
 /** Test server-side tests using the Sling JUnit servlet, as opposed
  *  to the plain JUnit servlet.
  */
+@Deprecated
 public class VltpackServerSideTestBase {
     /** Path to node that maps to Sling JUnit servlet */
     public static final String SERVLET_NODE_PATH =  "/test/sling/" + System.currentTimeMillis();

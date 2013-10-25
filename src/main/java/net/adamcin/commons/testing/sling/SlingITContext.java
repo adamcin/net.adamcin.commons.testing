@@ -19,6 +19,9 @@ public interface SlingITContext {
     /** Return password configured for execution of HTTP requests */
     String getServerPassword();
 
+    /** Return Sling JUnit Servlet Path */
+    String getJunitServletPath();
+
     SlingClient getSlingClient();
 
     HttpClient getHttpClient();
