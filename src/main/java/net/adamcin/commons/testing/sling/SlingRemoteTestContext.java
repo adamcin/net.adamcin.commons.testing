@@ -9,15 +9,8 @@ import org.apache.sling.testing.tools.sling.SlingTestBase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * Created with IntelliJ IDEA.
- * User: madamcin
- * Date: 10/25/13
- * Time: 9:54 AM
- * To change this template use File | Settings | File Templates.
- */
-public class GraniteITContext implements SlingITContext {
-    private static final Logger LOGGER = LoggerFactory.getLogger(GraniteITContext.class);
+public class SlingRemoteTestContext implements SlingITContext {
+    private static final Logger LOGGER = LoggerFactory.getLogger(SlingRemoteTestContext.class);
     public static final String TEST_SERVER_URL_PROP = SlingTestBase.TEST_SERVER_URL_PROP;
     public static final String TEST_SERVER_USERNAME = SlingTestBase.TEST_SERVER_USERNAME;
     public static final String TEST_SERVER_PASSWORD = SlingTestBase.TEST_SERVER_PASSWORD;
@@ -34,7 +27,7 @@ public class GraniteITContext implements SlingITContext {
     private DefaultHttpClient httpClient = new DefaultHttpClient();
     private RequestExecutor executor = new RequestExecutor(httpClient);
 
-    public GraniteITContext() {
+    public SlingRemoteTestContext() {
         final String configuredUrl = this.getConfiguredUrl();
         if(configuredUrl != null) {
             serverBaseUrl = configuredUrl;

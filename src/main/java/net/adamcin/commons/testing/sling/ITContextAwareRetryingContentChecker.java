@@ -5,6 +5,7 @@ import org.apache.sling.testing.tools.http.RequestBuilder;
 import org.apache.sling.testing.tools.http.RequestExecutor;
 import org.apache.sling.testing.tools.retry.RetryLoop;
 
+@Deprecated
 public class ITContextAwareRetryingContentChecker {
     private final RequestExecutor executor;
     private final RequestBuilder builder;
