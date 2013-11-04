@@ -32,6 +32,10 @@ import org.apache.sling.testing.tools.http.RequestBuilder;
 import org.apache.sling.testing.tools.http.RequestExecutor;
 import org.apache.sling.testing.tools.retry.RetryLoop;
 
+/**
+ * Deprecated with introduction of graniteit-maven-plugin, which provides this
+ * functionality natively
+ */
 @Deprecated
 public class ITContextAwareRetryingContentChecker {
     private final RequestExecutor executor;

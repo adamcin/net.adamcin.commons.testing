@@ -50,7 +50,9 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Simple POJO extracted from a Sling POST HTML Response
+ */
 public class SlingPostResponse {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SlingPostResponse.class);

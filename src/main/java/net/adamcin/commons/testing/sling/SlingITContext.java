@@ -32,6 +32,9 @@ import org.apache.sling.testing.tools.http.RequestBuilder;
 import org.apache.sling.testing.tools.http.RequestExecutor;
 import org.apache.sling.testing.tools.sling.SlingClient;
 
+/**
+ * Deprecated after introduction of graniteit-maven-plugin
+ */
 @Deprecated
 public interface SlingITContext {
 

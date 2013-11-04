@@ -36,6 +36,10 @@ import org.apache.sling.testing.tools.sling.SlingTestBase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Simpler implementation of a context object which gets its values from
+ * {@link System#getProperties()}, which may be set by the graniteit-maven-plugin
+ */
 public class SlingRemoteTestContext implements SlingITContext {
     private static final Logger LOGGER = LoggerFactory.getLogger(SlingRemoteTestContext.class);
     public static final String TEST_SERVER_URL_PROP = SlingTestBase.TEST_SERVER_URL_PROP;
@@ -43,6 +47,7 @@ public class SlingRemoteTestContext implements SlingITContext {
     public static final String TEST_SERVER_PASSWORD = SlingTestBase.TEST_SERVER_PASSWORD;
     public static final String SLING_JUNIT_PATH_PROP = "sling.junit.path";
 
+    public static final String LOCALHOST_4502 = "http://localhost:4502";
     public static final String ADMIN = "admin";
 
     private final String serverBaseUrl;
@@ -59,7 +64,7 @@ public class SlingRemoteTestContext implements SlingITContext {
         if(configuredUrl != null) {
             serverBaseUrl = configuredUrl;
         } else {
-            serverBaseUrl = "http://localhost:4502";
+            serverBaseUrl = LOCALHOST_4502;
         }
 
         // Set configured username using "admin" as default credential

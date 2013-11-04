@@ -33,8 +33,17 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Arrays;
 
+/**
+ * Utility methods for handling the JUnit {@link org.junit.Assert#fail()} method
+ * and printing relevant stacktrace information for exceptions.
+ */
 public final class FailUtil {
 
+    /**
+     * Extract the full stacktrace from {@code t} into a String for logging
+     * @param t an exception
+     * @return a string representation of the full stack trace
+     */
     public static String sprintFullStack(final Throwable t) {
         if (t == null) {
             return "";
@@ -45,6 +54,13 @@ public final class FailUtil {
         return writer.toString();
     }
 
+    /**
+     * Like {@link #sprintFullStack(Throwable)}, renders a stacktrace as a String for logging,
+     * but excludes stack trace elements common with the calling scope, which may
+     * be considered irrelevant to application functionality testing
+     * @param t an exception
+     * @return a string representation of a shorter stack trace
+     */
     public static String sprintShortStack(final Throwable t) {
         if (t == null) {
             return "";
@@ -73,6 +89,11 @@ public final class FailUtil {
         return sb.toString();
     }
 
+    /**
+     * Convenience method which calls {@link Assert#fail(String)} with a message created from
+     * the stack trace provided by {@code ex}
+     * @param ex an exception
+     */
     public static void sprintFail(Throwable ex) {
         Assert.fail(ex == null ? "Null throwable" : "Throwable: " + sprintShortStack(ex));
     }

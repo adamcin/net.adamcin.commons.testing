@@ -30,6 +30,9 @@ package net.adamcin.commons.testing.sling;
 
 import org.apache.sling.testing.tools.sling.SlingTestBase;
 
+/**
+ * Deprecated in favor of graniteit-maven-plugin and {@link SlingRemoteTestContext}
+ */
 @Deprecated
 public class VltpackITContext extends SlingRemoteTestContext {
 

@@ -31,17 +31,26 @@ package net.adamcin.commons.testing.sling;
 
 import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.StringBody;
-import org.apache.sling.testing.tools.sling.SlingTestBase;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
+/**
+ * Provides convenience methods for the Sling Testing Tools RequestBuilder,
+ * which relies on the Apache HTTP Client 4.x
+ */
 public final class RequestBuilderUtil {
 
     private RequestBuilderUtil() {
         // prevent instantiation
     }
 
+    /**
+     * Transforms a {@code Map} of properties into a multipart params entity
+     * @param entity the entity to add the property values to
+     * @param props a map of String properties
+     * @throws UnsupportedEncodingException
+     */
     public static void setMultipartParamsFromProps (MultipartEntity entity, Map<String, Object> props)
             throws UnsupportedEncodingException {
         if (entity != null) {

@@ -35,6 +35,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Iterator;
 import java.util.Map;
 
+/**
+ * Simple mock implementation of a Sling {@link ResourceResolver}
+ */
 public class MockResourceResolver implements ResourceResolver {
 
     public Resource resolve(HttpServletRequest request, String absPath) { return null; } 

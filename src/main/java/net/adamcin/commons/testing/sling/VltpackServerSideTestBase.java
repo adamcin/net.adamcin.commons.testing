@@ -38,6 +38,8 @@ import static org.junit.Assert.fail;
 
 /** Test server-side tests using the Sling JUnit servlet, as opposed
  *  to the plain JUnit servlet.
+ *
+ *  Deprecated in favor of graniteit-maven-plugin and {@link SlingRemoteTestBase}
  */
 @Deprecated
 public class VltpackServerSideTestBase {

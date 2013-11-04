@@ -37,7 +37,7 @@ package net.adamcin.commons.testing.junit;
  * This is especially useful as a safety net for uncaught NullPointerExceptions, which
  * would otherwise get swallowed by JUnit with no message and no line number. This
  * facility acts as a backstop such that any Exception that is thrown and not caught
- * by the execute method itself will be printed out with the stacktrace and the test
+ * by the {@link #execute()} method itself will be printed out with the stack trace and the test
  * will be failed.
  *
  * <pre>
@@ -56,10 +56,19 @@ public abstract class TestBody {
      */
     protected abstract void execute() throws Exception;
 
+    /**
+     * Called in the {@code finally} block. Default implementation does nothing.
+     * Override to perform any necessary cleanup behavior for the {@link TestBody}
+     * implementation
+     */
     protected void cleanUp() {
         /* override to do something else */
     }
 
+    /**
+     * Static execution method.
+     * @param testBody the TestBody to execute
+     */
     public static void test(TestBody testBody) {
         try {
             testBody.execute();

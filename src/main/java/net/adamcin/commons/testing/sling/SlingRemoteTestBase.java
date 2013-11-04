@@ -33,6 +33,10 @@ import org.apache.sling.testing.tools.http.RequestBuilder;
 import org.apache.sling.testing.tools.http.RequestExecutor;
 import org.apache.sling.testing.tools.sling.SlingClient;
 
+/**
+ * Abstract class intended to be used as the basis for client-side Sling Junit Framework
+ * IT classes which call remote Sling Tests
+ */
 public abstract class SlingRemoteTestBase implements SlingRemoteTestParameters {
 
     protected SlingRemoteTestContext context;

@@ -34,6 +34,9 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Simple mock implementation of a Sling {@link Resource}
+ */
 public class MockResource extends ResourceWrapper {
 
     private String name;
