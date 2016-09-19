@@ -147,9 +147,9 @@ public class SlingPostResponse {
      * The HttpResponse returned by getResponse() has already been consumed, and therefore, you
      * should use the #createFromString() method to parse the string returned from
      * getRequestExecutor().getContent()
-     * @param response
-     * @return
-     * @throws java.io.IOException
+     * @param response the response
+     * @return a SlingPostResponse
+     * @throws java.io.IOException response content type is not text/html
      */
     public static SlingPostResponse createFromHttpResponse(HttpResponse response)
             throws IOException {

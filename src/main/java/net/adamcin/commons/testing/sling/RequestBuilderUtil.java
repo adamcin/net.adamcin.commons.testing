@@ -49,7 +49,7 @@ public final class RequestBuilderUtil {
      * Transforms a {@code Map} of properties into a multipart params entity
      * @param entity the entity to add the property values to
      * @param props a map of String properties
-     * @throws UnsupportedEncodingException
+     * @throws UnsupportedEncodingException if the value contains an unsupported encoding
      */
     public static void setMultipartParamsFromProps (MultipartEntity entity, Map<String, Object> props)
             throws UnsupportedEncodingException {

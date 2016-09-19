@@ -50,7 +50,13 @@ public class ITContextAwareRetryingContentChecker {
         this.password = context.getServerPassword();
     }
 
-    /** Check specified path for expected status, or timeout */
+    /**
+     * Check specified path for expected status, or timeout
+     * @param path path to check
+     * @param expectedStatus http response code to wait for
+     * @param timeoutSeconds fail with timeout if no response within value
+     * @param intervalBetweenrequestsMsec retry loop buffer
+     */
     public void check(final String path, final int expectedStatus, int timeoutSeconds, int intervalBetweenrequestsMsec) {
         final RetryLoop.Condition c = new RetryLoop.Condition() {
             public String getDescription() {
@@ -73,12 +79,20 @@ public class ITContextAwareRetryingContentChecker {
         };
     }
 
-    /** Optionally perform additional tests in retry condition */
+    /**
+     * Optionally perform additional tests in retry condition
+     *
+     * @param executor the request executor
+     * @return true always
+     * @throws Exception never
+     */
     protected boolean assertMore(RequestExecutor executor) throws Exception {
         return true;
     }
 
-    /** Called if a timeout occurs */
+    /**
+     * Called if a timeout occurs
+     */
     protected void onTimeout() {
     }
 }

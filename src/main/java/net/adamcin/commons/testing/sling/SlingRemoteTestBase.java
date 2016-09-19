@@ -49,22 +49,34 @@ public abstract class SlingRemoteTestBase implements SlingRemoteTestParameters {
         return context.getServerBaseUrl() + context.getJunitServletPath();
     }
 
-    /** return a RequestBuilder that points to configured server */
+    /**
+     * a RequestBuilder that points to configured server
+     * @return a RequestBuilder that points to configured server
+     */
     protected RequestBuilder getRequestBuilder() {
         return context.getRequestBuilder();
     }
 
-    /** return server base URL */
+    /**
+     * server base URL
+     * @return server base URL
+     */
     protected String getServerBaseUrl() {
         return context.getServerBaseUrl();
     }
 
-    /** Return username configured for execution of HTTP requests */
+    /**
+     * username configured for execution of HTTP requests
+     * @return username configured for execution of HTTP requests
+     */
     protected String getServerUsername() {
         return context.getServerUsername();
     }
 
-    /** Return password configured for execution of HTTP requests */
+    /**
+     * password configured for execution of HTTP requests
+     * @return password configured for execution of HTTP requests
+     */
     protected String getServerPassword() {
         return context.getServerPassword();
     }

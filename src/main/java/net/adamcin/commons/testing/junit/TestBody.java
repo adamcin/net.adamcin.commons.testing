@@ -42,7 +42,7 @@ package net.adamcin.commons.testing.junit;
  *
  * <pre>
  * TestBody.test(new TestBody() {
- *     @Override public void execute() throws Exception {
+ *     {@code @Override} public void execute() throws Exception {
  *          // assert stuff
  *     }
  * });
@@ -52,7 +52,7 @@ public abstract class TestBody {
 
     /**
      * Implement this method
-     * @throws Exception
+     * @throws Exception which will be caught by the {@link #test(TestBody)} method
      */
     protected abstract void execute() throws Exception;
 

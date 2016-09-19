@@ -38,24 +38,51 @@ import org.apache.sling.testing.tools.sling.SlingClient;
 @Deprecated
 public interface SlingITContext {
 
-    /** return a RequestBuilder that points to configured server */
+    /**
+     * a RequestBuilder that points to configured server
+     * @return a RequestBuilder that points to configured server
+     */
     RequestBuilder getRequestBuilder();
 
-    /** return server base URL */
+    /**
+     * server base URL
+     * @return server base URL
+     */
     String getServerBaseUrl();
 
-    /** Return username configured for execution of HTTP requests */
+    /**
+     * username configured for execution of HTTP requests
+     * @return username configured for execution of HTTP requests
+     */
     String getServerUsername();
 
-    /** Return password configured for execution of HTTP requests */
+    /**
+     * password configured for execution of HTTP requests
+     * @return password configured for execution of HTTP requests
+     */
     String getServerPassword();
 
-    /** Return Sling JUnit Servlet Path */
+    /**
+     * Sling JUnit Servlet Path
+     * @return Sling JUnit Servlet Path
+     */
     String getJunitServletPath();
 
+    /**
+     * the sling client
+     * @return the sling client
+     */
     SlingClient getSlingClient();
 
+    /**
+     * the underlying http client
+     * @return the underlying httpclient
+     */
     HttpClient getHttpClient();
 
+    /**
+     * the request executor
+     * @return the request executor
+     */
     RequestExecutor getRequestExecutor();
 }
