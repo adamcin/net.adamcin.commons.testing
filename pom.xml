@@ -26,38 +26,39 @@
   ~ For more information, please refer to <http://unlicense.org />
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-	<parent>
+    <parent>
         <groupId>org.sonatype.oss</groupId>
         <artifactId>oss-parent</artifactId>
         <version>7</version>
     </parent>
 
-	<groupId>net.adamcin.commons</groupId>
+    <groupId>net.adamcin.commons</groupId>
     <artifactId>net.adamcin.commons.testing</artifactId>
-	<version>0.9.0-SNAPSHOT</version>
+    <version>0.9.0-SNAPSHOT</version>
     <packaging>bundle</packaging>
 
-	<name>${project.artifactId}</name>
-	<description>Common utilities for maven-executed unit testing and integration testing</description>
+    <name>${project.artifactId}</name>
+    <description>Common utilities for maven-executed unit testing and integration testing</description>
 
-	<properties>
-		<encoding>UTF-8</encoding>
-        <maven.compiler.source>1.5</maven.compiler.source>
-        <maven.compiler.target>1.5</maven.compiler.target>
+    <properties>
+        <encoding>UTF-8</encoding>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
         <slf4j.version>1.6.1</slf4j.version>
         <junit.version>4.8.2</junit.version>
         <jackrabbit.version>2.4.0</jackrabbit.version>
         <sling.junit.version>1.0.8</sling.junit.version>
         <sling.tools.version>1.0.6</sling.tools.version>
-        <httpcomponents.version>4.1.2</httpcomponents.version>
-	</properties>
+        <httpcomponents.version>[4.3,5.0)</httpcomponents.version>
+    </properties>
 
-	<inceptionYear>2013</inceptionYear>
+    <inceptionYear>2013</inceptionYear>
 
-	<url>http://adamcin.net/${project.artifactId}</url>
+    <url>http://adamcin.net/${project.artifactId}</url>
 
     <scm>
         <url>https://github.com/adamcin/${project.artifactId}</url>
@@ -83,8 +84,8 @@
             <name>Mark Adamcin</name>
             <email>adamcin@gmail.com</email>
             <url>http://adamcin.net</url>
-            <organization>Acquity Group</organization>
-            <organizationUrl>http://www.acquitygroup.com</organizationUrl>
+            <organization>Infield Digital</organization>
+            <organizationUrl>https://www.infielddigital.com</organizationUrl>
             <roles>
                 <role>architect</role>
                 <role>developer</role>
@@ -97,7 +98,7 @@
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
-				<version>2.3.7</version>
+                <version>3.2.0</version>
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
@@ -105,57 +106,32 @@
                             net.adamcin.commons.testing.*;version=${project.version}
                         </Export-Package>
                     </instructions>
-					<obrRepository>false</obrRepository>
+                    <obrRepository>false</obrRepository>
                 </configuration>
             </plugin>
-			<plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <goals>deploy site</goals>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
-                <version>3.3</version>
+                <version>3.5.1</version>
                 <configuration>
                     <inputEncoding>utf-8</inputEncoding>
-                    <reportPlugins>
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-project-info-reports-plugin</artifactId>
-                            <version>2.4</version>
-                        </plugin>
-<plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-javadoc-plugin</artifactId>
-                            <version>2.9</version>
-                            <configuration>
-                                <minmemory>128m</minmemory>
-                                <maxmemory>512m</maxmemory>
-                                <useStandardDocletOptions>true</useStandardDocletOptions>
-                                <charset>${encoding}</charset>
-                                <encoding>${encoding}</encoding>
-                                <docencoding>${encoding}</docencoding>
-                                <docfilessubdirs>true</docfilessubdirs>
-                                <breakiterator>true</breakiterator>
-                                <version>true</version>
-                                <author>true</author>
-                                <keywords>true</keywords>
-                                <attach>false</attach>
-                                <links>
-                                    <link>http://java.sun.com/j2se/${maven.compiler.source}/docs/api/</link>
-                                    <link>http://slf4j.org/api/</link>
-									<link>http://www.day.com/maven/jsr170/javadocs/jcr-2.0/</link>
-                                </links>
-                            </configuration>
-                        </plugin>
-						
-                    </reportPlugins>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>
-                <version>0.9</version>
+                <version>0.12</version>
                 <configuration>
                     <message>Creating site for ${project.artifactId} ${project.version}</message>
                     <noJekyll>true</noJekyll>
-                    <server>github</server>
                     <repositoryOwner>adamcin</repositoryOwner>
                     <repositoryName>${project.artifactId}</repositoryName>
                 </configuration>
@@ -171,16 +147,55 @@
         </plugins>
     </build>
 
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>${project.artifactId}</artifactId>
+                <version>${project.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>2.9</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <minmemory>128m</minmemory>
+                    <maxmemory>512m</maxmemory>
+                    <useStandardDocletOptions>true</useStandardDocletOptions>
+                    <charset>${encoding}</charset>
+                    <encoding>${encoding}</encoding>
+                    <docencoding>${encoding}</docencoding>
+                    <docfilessubdirs>true</docfilessubdirs>
+                    <breakiterator>true</breakiterator>
+                    <version>true</version>
+                    <author>true</author>
+                    <keywords>true</keywords>
+                    <attach>false</attach>
+                    <links>
+                        <link>http://java.sun.com/j2se/${maven.compiler.source}/docs/api/</link>
+                        <link>http://slf4j.org/api/</link>
+                        <link>http://www.day.com/maven/jsr170/javadocs/jcr-2.0/</link>
+                    </links>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
+
     <dependencies>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-			<version>${slf4j.version}</version>
+            <version>${slf4j.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-			<version>${junit.version}</version>
+            <version>${junit.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -214,12 +229,12 @@
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient-osgi</artifactId>
+            <artifactId>httpclient</artifactId>
             <version>${httpcomponents.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpcore-osgi</artifactId>
+            <artifactId>httpcore</artifactId>
             <version>${httpcomponents.version}</version>
         </dependency>
 
@@ -232,13 +247,13 @@
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>1.4</version>
+            <version>[1.4,3.0)</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
-			<version>${slf4j.version}</version>
+            <version>${slf4j.version}</version>
             <scope>test</scope>
         </dependency>
 
