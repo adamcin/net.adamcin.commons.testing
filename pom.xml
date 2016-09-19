@@ -37,7 +37,7 @@
 
     <groupId>net.adamcin.commons</groupId>
     <artifactId>net.adamcin.commons.testing</artifactId>
-    <version>0.9.0</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>bundle</packaging>
 
     <name>${project.artifactId}</name>
@@ -63,7 +63,7 @@
         <url>https://github.com/adamcin/${project.artifactId}</url>
         <developerConnection>scm:git:git@github.com:adamcin/${project.artifactId}.git</developerConnection>
         <connection>scm:git://github.com/adamcin/${project.artifactId}.git</connection>
-      <tag>net.adamcin.commons.testing-0.9.0</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <issueManagement>
